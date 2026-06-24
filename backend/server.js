@@ -32,11 +32,16 @@ app.options("*", cors());
 
 // ── Nodemailer transporter (Gmail) ────────────────────────────
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD, // App Password, not account password
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
+  connectionTimeout: 30000,
+  greetingTimeout: 30000,
+  socketTimeout: 30000,
 });
 
 // Verify connection once on startup
