@@ -11,6 +11,9 @@ const nodemailer = require("nodemailer");
 const app  = express();
 const PORT = process.env.PORT || 5000;
 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 // ── Middleware ────────────────────────────────────────────────
 app.use(express.json());
 
